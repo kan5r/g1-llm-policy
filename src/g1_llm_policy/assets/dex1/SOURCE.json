@@ -1,0 +1,20 @@
+{
+  "repository": "unitreerobotics/unitree_ros",
+  "commit": "7d6075f7f58588b189b940130e3edab3c839b2df",
+  "urdf": "robots/g1_description/g1_29dof_mode_15_with_dex1_1.urdf",
+  "sha256": {
+    "g1_dex1.urdf": "1a0a4f493d6686cd93952d8e67d6144d4c337929151c745e0440b8a28f08ed1a",
+    "LICENSE": "84aac59fd3246e3ddc49d1387644e8fcf43b0def4f0b9fe687f372e90446df2d",
+    "meshes/Dex1_base_link.STL": "03f1cb02f94d6b280953f6c5a10da2eab6220ea5c301408d3c4decca66c8cdad",
+    "meshes/Dex1_finger_link_1.STL": "7cd2ff199556e3955547a34c75ed9ea777fb7d704fc98e7318d0f67e4aaedf5a",
+    "meshes/Dex1_finger_link_2.STL": "e8297ce8184c64d34d70cd9d6c7b583fba6a3adae2075523e97fb956ada65eb3",
+    "meshes/dex1_col_1.stl": "5edf010f581635fcb4a79fe20cda65a96c95138112ab91d7e79629980f535c92",
+    "meshes/dex1_col_2.stl": "0d791ffb8b438bc4a5fd937eab383db4daa62685a73982e852cc559623036ba9",
+    "meshes/left_wrist_pitch_link_5010.STL": "65c91c4681228f28ccb73d9fc7e853bc1c857da199352321e834e15f2cd7a7d4",
+    "meshes/left_wrist_roll_link_5010.STL": "b5be0d8d17b6db9f74323049ce6a0b8a7d95b2434a34805650cc22050f4992dd",
+    "meshes/left_wrist_yaw_link_5010.STL": "d020b9ef67b0899c98b77029d8de80a820c16dba0b7611d0cd7f85033d9241f1",
+    "meshes/right_wrist_pitch_link_5010.STL": "ac1110adfd93a10396bd32bba7b71ded5ccd757405b9e6d3d0b4ff53dea09582",
+    "meshes/right_wrist_roll_link_5010.STL": "458d62c3fcb63f526cd258397c7ac88350d50fd444f35646054cb0e2015a2042",
+    "meshes/right_wrist_yaw_link_5010.STL": "fe36d6fe3f09fb0bb27bf3027b4c388110505d3f46678b80afe2e198a5ea7922"
+  }
+}

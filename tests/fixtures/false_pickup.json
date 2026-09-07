@@ -1,0 +1,98 @@
+[
+  {
+    "status": "move",
+    "left": null,
+    "right": {
+      "position": [
+        0.35,
+        -0.1487,
+        0.81
+      ],
+      "quaternion": [
+        0.9999999970833464,
+        -4.6429999999226775e-05,
+        3.379999999943711e-05,
+        5.034999999916149e-05
+      ]
+    },
+    "left_open": null,
+    "right_open": 1.0,
+    "note": "Move the open right hand slightly forward and down toward the red block, then check alignment."
+  },
+  {
+    "status": "move",
+    "left": null,
+    "right": {
+      "position": [
+        0.37,
+        -0.14,
+        0.765
+      ],
+      "quaternion": [
+        0.9998640415479036,
+        -0.0054419652002607255,
+        0.015106077500723736,
+        0.003753645800179838
+      ]
+    },
+    "left_open": null,
+    "right_open": 1.0,
+    "note": "The right hand stopped 2.3 cm short; cautiously advance and lower it toward the block while keeping the fingers open."
+  },
+  {
+    "status": "move",
+    "left": null,
+    "right": {
+      "position": [
+        0.35,
+        -0.14,
+        0.775
+      ],
+      "quaternion": [
+        0.9238795391929064,
+        0.0,
+        0.38268341623423263,
+        0.0
+      ]
+    },
+    "left_open": null,
+    "right_open": 1.0,
+    "note": "Position error increased to 6.4 cm. Tilt the right hand downward to ease wrist limits and approach the block with open fingers."
+  },
+  {
+    "status": "move",
+    "left": null,
+    "right": null,
+    "left_open": null,
+    "right_open": 0.0,
+    "note": "The red block appears between the right fingers; close the hand without advancing to test the grasp."
+  },
+  {
+    "status": "move",
+    "left": null,
+    "right": {
+      "position": [
+        0.35,
+        -0.14,
+        0.87
+      ],
+      "quaternion": [
+        0.9284745992446213,
+        -0.0015060658000723797,
+        0.3713926075178487,
+        -0.00042591600002046896
+      ]
+    },
+    "left_open": null,
+    "right_open": 0.0,
+    "note": "Lift the closed right hand about 6 cm to check whether the red block follows and clears the table."
+  },
+  {
+    "status": "done",
+    "left": null,
+    "right": null,
+    "left_open": null,
+    "right_open": 0.0,
+    "note": "The red block followed the right hand upward and is visibly held above the table."
+  }
+]

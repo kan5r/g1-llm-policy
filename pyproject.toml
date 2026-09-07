@@ -1,0 +1,45 @@
+[project]
+name = "g1-llm-policy"
+version = "0.1.0"
+description = "LLM end-effector control of a fixed-base Unitree G1 in MuJoCo"
+requires-python = ">=3.12,<3.14"
+dependencies = [
+    "mujoco>=3.8.1,<4",
+    "mink>=1.3,<2",
+    "daqp>=0.7",
+    "numpy>=2",
+    "pillow>=11",
+    "pydantic>=2.10",
+    "inspect-robots==0.58.0",
+    "glfw>=2.9,<3",
+    "inspect-robots-agent==0.26.0",
+]
+
+[project.optional-dependencies]
+agent = ["inspect-robots-agent"]
+
+[dependency-groups]
+dev = ["pytest>=8", "ruff>=0.12"]
+
+[project.scripts]
+g1-policy = "g1_llm_policy.cli:main"
+
+[project.entry-points."inspect_robots.embodiments"]
+g1_mujoco = "g1_llm_policy.adapters.inspect_robots:G1Embodiment"
+
+[project.entry-points."inspect_robots.policies"]
+codex_g1 = "g1_llm_policy.adapters.inspect_robots:InspectCodexPolicy"
+
+[build-system]
+requires = ["uv_build>=0.8,<1"]
+build-backend = "uv_build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
