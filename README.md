@@ -1,17 +1,13 @@
 # g1-llm-policy
 
 Mac上のMuJoCoで、LLMがハンド付きUnitree G1の手先を制御する実験用リポジトリ。
-最初のバックエンドは **Codex app-server**。モデル名は設定可能で、`gpt-6-astra`を既定値にしています。
-学習・Isaac・実機SDKは使用しません。LLMの推論はCodex経由のサービス側で行い、Macでは物理計算・IK・描画を実行します。
 
-## 実行動画
-
-### GPT-6 Astra
-
+**GPT-6 Astra**
+成功
 https://github.com/user-attachments/assets/48747297-58a4-44a0-b079-981dc3033f0f
 
-### GPT-5.6 Sol
-
+**GPT-5.6 Sol**
+赤ブロックを落として失敗．興味深い点として赤ブロックが卓上にないことを認識してLLM自身がgive_upと終了している．
 https://github.com/user-attachments/assets/f1a344be-7654-4670-b35a-1d8daa7fbd14
 
 元の動画・入力画像・実行ログは[runs](runs/)にあります。
@@ -41,11 +37,6 @@ uv run python scripts/setup_macos.py  # macOS / uv Pythonのmjpython対応
 codex login
 uv run python run.py models
 ```
-
-`models`で現在のアカウントが使えるモデルを照会します。認証情報をこのリポジトリへコピーする必要はありません。
-
-ルートのパッケージはeditable、MuJoCo・Mink・Inspect Robotsはuv管理の通常依存です。
-`inspect-robots==0.58.0`と`inspect-robots-agent==0.26.0`を固定し、Codex経路でも標準agent本体を使用します。
 
 ## 起動
 
