@@ -4,7 +4,18 @@ Mac上のMuJoCoで、LLMがハンド付きUnitree G1の手先を制御する実�
 最初のバックエンドは **Codex app-server**。モデル名は設定可能で、`gpt-6-astra`を既定値にしています。
 学習・Isaac・実機SDKは使用しません。LLMの推論はCodex経由のサービス側で行い、Macでは物理計算・IK・描画を実行します。
 
-![G1 ego view](docs/ego.png)
+## 実行動画
+
+### GPT-6 Astra
+
+https://github.com/user-attachments/assets/48747297-58a4-44a0-b079-981dc3033f0f
+
+### GPT-5.6 Sol
+
+https://github.com/user-attachments/assets/f1a344be-7654-4670-b35a-1d8daa7fbd14
+
+元の動画・入力画像・実行ログは[runs](runs/)にあります。
+
 
 ## 構成
 
