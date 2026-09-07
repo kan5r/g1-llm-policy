@@ -1,8 +1,9 @@
-"""Stream simulation-time frames to MP4 without accumulating images in memory."""
+"""Stream simulation frames and measured LLM waits to MP4."""
 
 import shutil
 import subprocess
-from contextlib import ExitStack
+import time
+from contextlib import ExitStack, contextmanager
 
 import mujoco
 import numpy as np
@@ -18,6 +19,7 @@ class VideoRecorder:
         self.start = None
         self.renderer = None
         self.frames = 0
+        self.wait_seconds = 0.0
         self.caption = "Ready"
         self.last_frames = []
         self.writers = []
@@ -28,6 +30,25 @@ class VideoRecorder:
 
     def set_command(self, step, command):
         self.caption = f"[{step}] {command.status}: {command.note}"
+
+    @contextmanager
+    def waiting(self, env, viewer, step):
+        """Keep a frozen waiting frame for the wall-clock duration of policy.act."""
+        previous_caption = self.caption
+        self.caption = f"[{step}] Waiting for LLM"
+        self.capture(env, viewer, force=True)
+        started = time.monotonic()
+        try:
+            yield
+        finally:
+            count = max(1, round((time.monotonic() - started) * self.fps))
+            for _ in range(count - 1):
+                for writer, payload in zip(self.writers, self.last_frames):
+                    writer.stdin.write(payload)
+            self.frames += count - 1
+            # Offset the capture clock so waits never suppress later motion frames.
+            self.wait_seconds += count / self.fps
+            self.caption = previous_caption
 
     def render_overview(self, env, viewer):
         snapshot = viewer.camera_snapshot() if viewer else [0.12, 0, 0.68, 2.15, 180, -35]
@@ -71,7 +92,8 @@ class VideoRecorder:
     def capture(self, env, viewer=None, force=False):
         if self.start is None:
             self.start = env.data.time
-        if not force and env.data.time - self.start + 1e-8 < self.frames / self.fps:
+        elapsed = env.data.time - self.start + self.wait_seconds
+        if not force and elapsed + 1e-8 < self.frames / self.fps:
             return
         self.last_frames = []
         for index, camera in enumerate(self.cameras):

@@ -124,7 +124,11 @@ def main():
                             for camera, image in images.items():
                                 Image.fromarray(image).save(out / f"{step:03d}-{camera}.png")
                             before = env.observe()
-                            command = policy.act(args.instruction, before, images)
+                            waiting = (
+                                recorder.waiting(env, viewer, step) if recorder else nullcontext()
+                            )
+                            with waiting:
+                                command = policy.act(args.instruction, before, images)
                             print(f"[{step}] {command.status}: {command.note}", flush=True)
                             if recorder:
                                 recorder.set_command(step, command)
